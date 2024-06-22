@@ -35,12 +35,18 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         id: deploy
         run: |
-          vercel deploy --prebuilt --token=${{ secrets.VERCEL_ACCESS_TOKEN }} > vercel-output.txt
+          vercel deploy --prebuilt --token=${{ secrets.VERCEL_ACCESS_TOKEN }} --confirm > vercel-output.txt
           DEPLOYMENT_URL=$(grep -o 'https://[^ ]*.vercel.app' vercel-output.txt)
-          echo "preview_url=${DEPLOYMENT_URL}" >> $GITHUB_ENV
+          echo "preview_url=${DEPLOYMENT_URL}" >> $GITHUB_OUTPUT
+
+      - name: Test Output
+        run: cat $GITHUB_OUTPUT
+
+      - name: test preview_url
+        run: echo ${{ steps.deploy.outputs.preview_url }}
 
       - name: Comment PR with Preview URL
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            🎉 Preview URL: ${{ env.preview_url }}
+            🎉 Preview URL: ${{ steps.deploy.outputs.preview_url }}
