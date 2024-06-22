@@ -15,7 +15,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            변경 완료{" "}
+            pr시 자동 푸쉬{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
