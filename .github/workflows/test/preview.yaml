@@ -2,7 +2,7 @@ name: Preview
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["develop"]
 
 jobs:
   vercel-preview:
@@ -42,4 +42,4 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            🎉 구현한 기능 Preview: ${{ steps.deploy.outputs.preview_url }}
+            🎉 Preview: ${{ steps.deploy.outputs.preview_url }}
