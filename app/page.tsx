@@ -15,7 +15,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            pr로 프리뷰 확인{" "}
+            pr로 프리뷰 두번째 확인{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
