@@ -15,7 +15,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            배포 확인 완료{" "}
+            pr로 merge시 배포 확인 완료{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
